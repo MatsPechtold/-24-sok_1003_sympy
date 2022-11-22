@@ -1,0 +1,2070 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "be0c99f8-eeb5-4150-8cc9-f40fe568c679",
+   "metadata": {},
+   "source": [
+    "# SOK-1003 Sympy Arbeidskrav"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bbb15d1b-8fe8-4a85-b21b-ebfbe81c9461",
+   "metadata": {},
+   "source": [
+    "#### Arbeidskravet er løst av Mats Pechtold [24]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "17f75e46-fe2c-4250-97d3-af56e7355980",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sympy as sp\n",
+    "from sympy.solvers import solve"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dc60b7fc-9db5-4905-9288-ed66c7703b6b",
+   "metadata": {},
+   "source": [
+    "## Oppgave 15"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "e7a5d599-99f0-4107-ba2c-6b51e4cb0be1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Gjennom hele oppgaven jobber jeg med to ukjente\n",
+    "x, y = sp.symbols(\"x y\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c67e32e9-131c-4ce0-b3f0-186f8fb204a8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{x: -1, y: 2}"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "eq1=sp.Eq(2*x+4*y,6)\n",
+    "eq2=sp.Eq(-2*x+y,4)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "2032d316-64ee-4a6c-89ea-612e1a09a00e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-1, -1), (2, 5)]"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "eq1=sp.Eq(2*x-y,-1)\n",
+    "eq2=sp.Eq(x**2+x-y,1)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "a8ab0358-d92f-439a-9038-1d471a179523",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{x: 4, y: 0}"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "eq1=sp.Eq(3*x-12,-6*y)\n",
+    "eq2=sp.Eq(4*x-8*y,16)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "ef0fe32c-876e-483d-a195-16f6d3bef8d7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-15/2, 31/4), (2, 3)]"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "eq1=sp.Eq(x**2+4*x-3,3*y)\n",
+    "eq2=sp.Eq(2*y,8-x)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2db6950a-9978-4fb1-a000-523a70419cad",
+   "metadata": {},
+   "source": [
+    "# Oppgave 16"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "828ad88c-3159-43fa-b4b7-f76532ffb054",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x, y = sp.symbols(\"x y\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "edfbb17c-f712-47c5-ad2c-97d0f14586a8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{x: 2, y: 2}"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "eq1=sp.Eq(4*x+2*y,12)\n",
+    "eq2=sp.Eq(6*x-2*y,8)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f2ec196e-ef28-4fee-8fc4-8ae5d020688e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(0, -5), (12, 1)]"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "eq1=sp.Eq(2*x+y**2,25)\n",
+    "eq2=sp.Eq(x-2*y,10)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "0f8f5a6b-573b-4bab-b2af-f016afcf19c9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{x: 4, y: 2}"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "eq1=sp.Eq(4*x-4*y,8)\n",
+    "eq2=sp.Eq(9*x-5*y,26)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "1b1f209c-ae40-4277-a7e6-bd5b50678179",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-9, -2*sqrt(3)), (-9, 2*sqrt(3)), (7, -2), (7, 2)]"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "eq1=sp.Eq(x+2*y**2,15)\n",
+    "eq2=sp.Eq(x**2-4*y**2,33)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "88613903-24e1-4453-a831-086b74c41e20",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "## Oppgave 17"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "e29c49ef-bab5-4eaa-8e46-8c58ef12b063",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x, y = sp.symbols(\"x y\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "d0cf91a5-9baf-4665-93ed-42a4507cb769",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(0, -4), (0, 4), (15, -1), (15, 1)]"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "eq1=sp.Eq(x*y**2-x,0)\n",
+    "eq2=sp.Eq(x+y**2,16)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "d474c535-7a7e-47fd-a803-8f5915095334",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-10, 0), (-6, -8), (-6, 8), (6, -8), (6, 8), (10, 0)]"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "eq1=sp.Eq(x**2+y**2,100)\n",
+    "eq2=sp.Eq(x**2*y-36*y,0)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "bfa5f2fe-ee02-4501-8bf7-d05a4053ccc3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-3, -7), (-3, 7), (0, -sqrt(58)), (0, sqrt(58)), (3, -7), (3, 7)]"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "eq1=sp.Eq(x*y**2-49*x,0)\n",
+    "eq2=sp.Eq(x**2+y**2,58)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "5c882d4a-ef39-4e16-9788-b22a69e21e5f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(-1.11803398874989, 0.0),\n",
+       " (-0.500000000000000, -1.00000000000000),\n",
+       " (-0.500000000000000, 1.00000000000000),\n",
+       " (1.11803398874989, 0.0)]"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "eq1=sp.Eq(x**2+y**2,1.25)\n",
+    "eq2=sp.Eq(2*x*y+y,0)\n",
+    "\n",
+    "svar = solve([eq1,eq2],[x,y])\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cb6c910d-efaf-4665-9922-9e46bcd4fa2f",
+   "metadata": {},
+   "source": [
+    "## Oppgave 19"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "1d4a10b2-51e5-45c5-b4dd-fb2c2dd26a8b",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'a1' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Input \u001b[0;32mIn [91]\u001b[0m, in \u001b[0;36m<cell line: 6>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21ma19\u001b[39m(x):\n\u001b[1;32m      4\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m x\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m5\u001b[39m\n\u001b[0;32m----> 6\u001b[0m svar \u001b[38;5;241m=\u001b[39m sp\u001b[38;5;241m.\u001b[39mdiff(\u001b[43ma1\u001b[49m(x),x)\n\u001b[1;32m      7\u001b[0m svar\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'a1' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "def a19(x):\n",
+    "    return x**5\n",
+    "\n",
+    "svar = sp.diff(a1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "id": "824757fd-65b0-454e-b1fb-debfcdad630b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 1$"
+      ],
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 92,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "def b1(x):\n",
+    "    return x+12\n",
+    "\n",
+    "svar = sp.diff(b1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "8ea48221-d559-4d19-b797-a361d4b81b82",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 x^{2} + 8 x$"
+      ],
+      "text/plain": [
+       "3*x**2 + 8*x"
+      ]
+     },
+     "execution_count": 93,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1c)\n",
+    "\n",
+    "def c1(x):\n",
+    "    return x**3+4*x**2\n",
+    "\n",
+    "svar = sp.diff(c1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "id": "728ab533-b7f1-4dd7-9954-8bd6e1b5f292",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 6 x^{2}$"
+      ],
+      "text/plain": [
+       "6*x**2"
+      ]
+     },
+     "execution_count": 94,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1d)\n",
+    "\n",
+    "def d1(x):\n",
+    "    return 2*x**3 + sp.sqrt(36)\n",
+    "\n",
+    "svar = sp.diff(d1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "id": "83260949-68fc-4255-9e00-3bbea4dfc003",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{1}{2 \\sqrt{x}}$"
+      ],
+      "text/plain": [
+       "1/(2*sqrt(x))"
+      ]
+     },
+     "execution_count": 95,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1e)\n",
+    "\n",
+    "def e1(x):\n",
+    "    return sp.sqrt(x) + 5**2\n",
+    "\n",
+    "svar = sp.diff(e1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "id": "17a37352-0113-43eb-bed0-9c72339ab0c2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 x^{2} - \\frac{1}{x^{2}}$"
+      ],
+      "text/plain": [
+       "3*x**2 - 1/x**2"
+      ]
+     },
+     "execution_count": 96,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1f)\n",
+    "\n",
+    "def f1(x):\n",
+    "    return x**3 + (1/x)\n",
+    "\n",
+    "svar = sp.diff(f1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "id": "4b660f58-5995-4cdd-95c0-6307d7a9ec71",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 x^{2} - 2 x + 0.25$"
+      ],
+      "text/plain": [
+       "3*x**2 - 2*x + 0.25"
+      ]
+     },
+     "execution_count": 97,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1g)\n",
+    "\n",
+    "def g1(x):\n",
+    "    return x**3-x**2+(1/4)*x\n",
+    "\n",
+    "svar = sp.diff(g1(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "id": "a733ac81-170f-40eb-9519-2ec3efbe0848",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 36 x^{5} - \\frac{1}{x^{2}}$"
+      ],
+      "text/plain": [
+       "36*x**5 - 1/x**2"
+      ]
+     },
+     "execution_count": 98,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "def a2(x):\n",
+    "    return (1/x)+6*x**6\n",
+    "\n",
+    "svar = sp.diff(a2(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "id": "89744645-0f21-4c09-8f3c-bc95f2663180",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 1.5 x^{2} - 1$"
+      ],
+      "text/plain": [
+       "1.5*x**2 - 1"
+      ]
+     },
+     "execution_count": 99,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "def b2(x):\n",
+    "    return -x+(1/2)*x**3\n",
+    "\n",
+    "svar = sp.diff(b2(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "id": "3246c232-50e7-4aaf-8244-deddade320fc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 x^{2} + 4 x - 3$"
+      ],
+      "text/plain": [
+       "3*x**2 + 4*x - 3"
+      ]
+     },
+     "execution_count": 100,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2c)\n",
+    "\n",
+    "def c2(x):\n",
+    "    return ((x*x**2)+(x*2*x)-3*x)\n",
+    "\n",
+    "svar = sp.diff(c2(x),x)\n",
+    "svar"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "63c108d6-ffc1-439d-9edb-7720e0f21627",
+   "metadata": {},
+   "source": [
+    "## Oppgave 20"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "id": "41687e5b-f6e6-4900-91e9-105ac891a770",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 9 x^{8}$"
+      ],
+      "text/plain": [
+       "9*x**8"
+      ]
+     },
+     "execution_count": 101,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1e)\n",
+    "\n",
+    "def e20(x):\n",
+    "    return x**4*x**5\n",
+    "\n",
+    "svar = sp.diff(e20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "id": "1c8cd7a1-4b92-4893-964c-c03ab627fcb1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{3 \\sqrt{x}}{2}$"
+      ],
+      "text/plain": [
+       "3*sqrt(x)/2"
+      ]
+     },
+     "execution_count": 102,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1f)\n",
+    "\n",
+    "def f20(x):\n",
+    "    return x*sp.sqrt(x)\n",
+    "\n",
+    "svar = sp.diff(f20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "id": "ae900f71-b94f-4166-abe5-5fd556c776af",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle - \\frac{6}{x^{4}}$"
+      ],
+      "text/plain": [
+       "-6/x**4"
+      ]
+     },
+     "execution_count": 103,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1g)\n",
+    "\n",
+    "def g20(x):\n",
+    "    return 2/x**3\n",
+    "\n",
+    "svar = sp.diff(g20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "id": "ce6752a3-9ac1-49bb-9e79-69efab697eb9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{6 - x^{2}}{x^{4}}$"
+      ],
+      "text/plain": [
+       "(6 - x**2)/x**4"
+      ]
+     },
+     "execution_count": 104,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1h)\n",
+    "\n",
+    "def h20(x):\n",
+    "    return (x**2-2)/(x**3)\n",
+    "\n",
+    "svar = sp.diff(h20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 105,
+   "id": "281e5ea2-5a36-4206-ae56-e250db43928c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{13 x^{\\frac{11}{2}}}{2}$"
+      ],
+      "text/plain": [
+       "13*x**(11/2)/2"
+      ]
+     },
+     "execution_count": 105,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1i)\n",
+    "\n",
+    "def i20(x):\n",
+    "    return sp.sqrt(x)*x**6\n",
+    "\n",
+    "svar = sp.diff(i20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "id": "e3570f27-f6eb-49f9-ad4a-a7558c6d692a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 x^{2} + 1$"
+      ],
+      "text/plain": [
+       "3*x**2 + 1"
+      ]
+     },
+     "execution_count": 106,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1j)\n",
+    "\n",
+    "def j20(x):\n",
+    "    return x*x**2+1*x\n",
+    "\n",
+    "svar = sp.diff(j20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "id": "8e888e11-67bd-474b-b14b-4d2c19fe5153",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{x \\left(- x^{3} - 12 x - 2\\right)}{x^{6} - 2 x^{3} + 1}$"
+      ],
+      "text/plain": [
+       "x*(-x**3 - 12*x - 2)/(x**6 - 2*x**3 + 1)"
+      ]
+     },
+     "execution_count": 107,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1k)\n",
+    "\n",
+    "def k20(x):\n",
+    "    return (x**2+4)/(x**3-1)\n",
+    "\n",
+    "svar = sp.diff(k20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "id": "100dcf49-bc49-4558-a8ef-4ba8fafc587f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{2}{\\left(x + 2\\right)^{2}}$"
+      ],
+      "text/plain": [
+       "2/(x + 2)**2"
+      ]
+     },
+     "execution_count": 108,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1l)\n",
+    "\n",
+    "def l20(x):\n",
+    "    return (x**2)/(x**2+2*x)\n",
+    "\n",
+    "svar = sp.diff(l20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "id": "8b7f7e58-c4b3-48e0-ae21-433bcf6c5b7e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{x^{2} - 4 x - 10}{x^{2} - 4 x + 4}$"
+      ],
+      "text/plain": [
+       "(x**2 - 4*x - 10)/(x**2 - 4*x + 4)"
+      ]
+     },
+     "execution_count": 109,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1m)\n",
+    "\n",
+    "def m20(x):\n",
+    "    return (x**2+4*x+2)/(x-2)\n",
+    "\n",
+    "svar = sp.diff(m20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "id": "85cdaec1-17dc-4125-85e0-3ab33243326f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{x^{4} - x^{2} + 2}{x^{4} - 2 x^{2} + 1}$"
+      ],
+      "text/plain": [
+       "(x**4 - x**2 + 2)/(x**4 - 2*x**2 + 1)"
+      ]
+     },
+     "execution_count": 110,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "def a20(x):\n",
+    "    return (x**3-2*x)/(x**2-1)\n",
+    "\n",
+    "svar = sp.diff(a20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "id": "b0eade04-4516-4c96-ad52-7f4d96a6fd35",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 4 x^{3}$"
+      ],
+      "text/plain": [
+       "4*x**3"
+      ]
+     },
+     "execution_count": 111,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "def b20(x):\n",
+    "    return (x**2+1)*(x**2-1)\n",
+    "\n",
+    "svar = sp.diff(b20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "id": "d69a68b2-28cb-47fc-8609-1529addfad37",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{3 \\left(- 2 x^{3} + 4 x^{2} + 7\\right)}{x^{6} + 14 x^{3} + 49}$"
+      ],
+      "text/plain": [
+       "3*(-2*x**3 + 4*x**2 + 7)/(x**6 + 14*x**3 + 49)"
+      ]
+     },
+     "execution_count": 112,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2c)\n",
+    "\n",
+    "def c20(x):\n",
+    "    return (3*x-4)/(x**3+7)\n",
+    "\n",
+    "svar = sp.diff(c20(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8ddd8c4c-1dc1-42f2-aa72-c63348a7cdc2",
+   "metadata": {},
+   "source": [
+    "## Oppgave 21"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "id": "fc625687-0a7f-4e25-9d6e-d3d21584d090",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 15 x^{4} \\left(x^{2} + 2\\right) \\left(x^{2} + 6\\right)^{4}$"
+      ],
+      "text/plain": [
+       "15*x**4*(x**2 + 2)*(x**2 + 6)**4"
+      ]
+     },
+     "execution_count": 113,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "def a21(x):\n",
+    "    return (x**3+6*x)**5\n",
+    "\n",
+    "svar = sp.diff(a21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "id": "10d964ac-4af3-48b3-9700-41bb6fefaece",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{2 x}{\\sqrt{2 x^{2} + 5}}$"
+      ],
+      "text/plain": [
+       "2*x/sqrt(2*x**2 + 5)"
+      ]
+     },
+     "execution_count": 114,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "def b21(x):\n",
+    "    return sp.sqrt(2*x**2+5)\n",
+    "\n",
+    "svar = sp.diff(b21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 115,
+   "id": "b7181d97-26cb-4f95-bd53-0f7ca840c4d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{64 x^{3} \\cdot \\left(3 - x^{2}\\right)}{\\left(x^{2} + 3\\right)^{5}}$"
+      ],
+      "text/plain": [
+       "64*x**3*(3 - x**2)/(x**2 + 3)**5"
+      ]
+     },
+     "execution_count": 115,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1c)\n",
+    "\n",
+    "def c21(x):\n",
+    "    return ((2*x)/(x**2+3))**4\n",
+    "\n",
+    "svar = sp.diff(c21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "id": "28d934cb-7131-49d5-a032-0dbb37a0b85b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 12.0 x^{3} \\left(2 x^{4} + 9\\right)^{0.5}$"
+      ],
+      "text/plain": [
+       "12.0*x**3*(2*x**4 + 9)**0.5"
+      ]
+     },
+     "execution_count": 116,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1d)\n",
+    "\n",
+    "def d21(x):\n",
+    "    return (2*x**4+9)**1.5\n",
+    "\n",
+    "svar = sp.diff(d21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "id": "774f55bb-2639-4173-ad5a-b7a1e61f7714",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle - \\frac{x}{\\left(x^{2} + 1\\right)^{\\frac{3}{2}}}$"
+      ],
+      "text/plain": [
+       "-x/(x**2 + 1)**(3/2)"
+      ]
+     },
+     "execution_count": 117,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1e)\n",
+    "\n",
+    "def e21(x):\n",
+    "    return (1)/(sp.sqrt(1+x**2))\n",
+    "\n",
+    "svar = sp.diff(e21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 118,
+   "id": "bac0f50b-3c67-4331-9bae-55c835ec1de3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle x^{4} \\left(x + 2\\right)^{2} \\cdot \\left(8 x + 10\\right)$"
+      ],
+      "text/plain": [
+       "x**4*(x + 2)**2*(8*x + 10)"
+      ]
+     },
+     "execution_count": 118,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1f)\n",
+    "\n",
+    "def f21(x):\n",
+    "    return x**2*((x**2+2*x)**3)\n",
+    "\n",
+    "svar = sp.diff(f21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 119,
+   "id": "b04d65cc-4320-4684-aeb5-473371eb5445",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{x^{2} \\cdot \\left(3 x - 5\\right)}{\\sqrt{x \\left(x - 2\\right)}}$"
+      ],
+      "text/plain": [
+       "x**2*(3*x - 5)/sqrt(x*(x - 2))"
+      ]
+     },
+     "execution_count": 119,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1g)\n",
+    "\n",
+    "def g21(x):\n",
+    "    return x**2*sp.sqrt(x**2-2*x)\n",
+    "\n",
+    "svar = sp.diff(g21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 120,
+   "id": "07494088-6667-4523-b638-9342bdc62e79",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{- 4 x - 1}{x^{2} \\left(x + 1\\right)^{4}}$"
+      ],
+      "text/plain": [
+       "(-4*x - 1)/(x**2*(x + 1)**4)"
+      ]
+     },
+     "execution_count": 120,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1h)\n",
+    "\n",
+    "def h21(x):\n",
+    "    return (x**2)/((x**2+x)**3)\n",
+    "\n",
+    "svar = sp.diff(h21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 121,
+   "id": "a36a4e43-f3ff-4c91-ac35-3869ebbff462",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle x \\left(x^{2} + 1\\right) \\left(x^{3} + 1\\right)^{2} \\cdot \\left(4 x^{3} + 9 x \\left(x^{2} + 1\\right) + 4\\right)$"
+      ],
+      "text/plain": [
+       "x*(x**2 + 1)*(x**3 + 1)**2*(4*x**3 + 9*x*(x**2 + 1) + 4)"
+      ]
+     },
+     "execution_count": 121,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1i)\n",
+    "\n",
+    "def i21(x):\n",
+    "    return ((x**2+1)**2)*((x**3+1)**3)\n",
+    "\n",
+    "svar = sp.diff(i21(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 122,
+   "id": "553d17a3-9ba6-4881-8f95-79f48fcc9e87",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{\\sqrt{x^{4} \\left(3 x + 2\\right)^{4}} \\cdot \\left(12 x + 4\\right)}{x \\left(3 x + 2\\right)}$"
+      ],
+      "text/plain": [
+       "sqrt(x**4*(3*x + 2)**4)*(12*x + 4)/(x*(3*x + 2))"
+      ]
+     },
+     "execution_count": 122,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "def a212(x):\n",
+    "    return sp.sqrt((3*x**2+2*x)**4)\n",
+    "\n",
+    "svar = sp.diff(a212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 123,
+   "id": "c1ba004b-7328-4d10-9b38-ade4ca8325cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle x \\left(x^{2} + 3\\right)^{3} \\left(x^{3} + 3\\right)^{4} \\cdot \\left(8 x^{3} + 15 x \\left(x^{2} + 3\\right) + 24\\right)$"
+      ],
+      "text/plain": [
+       "x*(x**2 + 3)**3*(x**3 + 3)**4*(8*x**3 + 15*x*(x**2 + 3) + 24)"
+      ]
+     },
+     "execution_count": 123,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "def b212(x):\n",
+    "    return ((x**3+3)**5)*((x**2+3)**4)\n",
+    "\n",
+    "svar = sp.diff(b212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "id": "663d59b5-4833-4dfe-a2d8-ca7986cc6345",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{\\sqrt{2} \\sqrt{x^{2}}}{x}$"
+      ],
+      "text/plain": [
+       "sqrt(2)*sqrt(x**2)/x"
+      ]
+     },
+     "execution_count": 124,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2c)\n",
+    "\n",
+    "def c212(x):\n",
+    "    return sp.sqrt(x**2+1*x**2)\n",
+    "\n",
+    "svar = sp.diff(c212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "id": "2d429e9a-b116-48d3-81fb-d81f520364ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\left(3 x + 2\\right)^{2} \\cdot \\left(12 x + 2\\right)$"
+      ],
+      "text/plain": [
+       "(3*x + 2)**2*(12*x + 2)"
+      ]
+     },
+     "execution_count": 125,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2d)\n",
+    "\n",
+    "def d212(x):\n",
+    "    return ((2*x+3*x**2)**3)/x**2\n",
+    "\n",
+    "svar = sp.diff(d212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 126,
+   "id": "d8205a55-311e-4dfa-bbf3-f055a51d5326",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{4 x^{3}}{3 \\left(x^{4} - 5\\right)^{\\frac{2}{3}}}$"
+      ],
+      "text/plain": [
+       "4*x**3/(3*(x**4 - 5)**(2/3))"
+      ]
+     },
+     "execution_count": 126,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2e)\n",
+    "\n",
+    "def e212(x):\n",
+    "    return sp.cbrt((x**4-5))\n",
+    "\n",
+    "svar = sp.diff(e212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 127,
+   "id": "5db5ecd9-ea72-490f-8a7e-822758c7d10d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{x^{2} \\left(x^{4} - 3\\right)}{\\left(x^{4} - 1\\right)^{\\frac{3}{2}}}$"
+      ],
+      "text/plain": [
+       "x**2*(x**4 - 3)/(x**4 - 1)**(3/2)"
+      ]
+     },
+     "execution_count": 127,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2f)\n",
+    "\n",
+    "def f212(x):\n",
+    "    return (x**3)/(sp.sqrt(x**4-1))\n",
+    "\n",
+    "svar = sp.diff(f212(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fb1e4aae-1862-4242-9895-9f73a10a7b62",
+   "metadata": {},
+   "source": [
+    "## Oppgave 22"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 128,
+   "id": "9ed4e94c-b6dc-492a-ba56-ab137674a425",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{1}{x}$"
+      ],
+      "text/plain": [
+       "1/x"
+      ]
+     },
+     "execution_count": 128,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1a)\n",
+    "\n",
+    "def a22(x):\n",
+    "    return sp.log(5*x)\n",
+    "\n",
+    "svar = sp.diff(a22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 129,
+   "id": "1fdfacdd-af1d-4b41-a05e-39168fb25de3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle - 2 e^{- 2 x}$"
+      ],
+      "text/plain": [
+       "-2*exp(-2*x)"
+      ]
+     },
+     "execution_count": 129,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1b)\n",
+    "\n",
+    "def b22(x):\n",
+    "    return sp.exp(-2*x)\n",
+    "\n",
+    "svar = sp.diff(b22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 130,
+   "id": "555afc3c-2327-4525-ae45-9f365eafc4e3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{1}{x}$"
+      ],
+      "text/plain": [
+       "1/x"
+      ]
+     },
+     "execution_count": 130,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1c)\n",
+    "\n",
+    "def c22(x):\n",
+    "    return sp.log(12*x)-3\n",
+    "\n",
+    "svar = sp.diff(c22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "b863ccf7-0362-46bf-9f50-1905a5081ea2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 2^{x} \\log{\\left(2 \\right)}$"
+      ],
+      "text/plain": [
+       "2**x*log(2)"
+      ]
+     },
+     "execution_count": 88,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1d)\n",
+    "\n",
+    "def d22(x):\n",
+    "    return 2**x\n",
+    "\n",
+    "svar = sp.diff(d22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "5ea7f5b5-36e2-4b4a-9da4-e0acc5df49b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 3 e^{3 x + 5}$"
+      ],
+      "text/plain": [
+       "3*exp(3*x + 5)"
+      ]
+     },
+     "execution_count": 87,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1e)\n",
+    "\n",
+    "def e22(x):\n",
+    "    return sp.exp(3*x+5)\n",
+    "\n",
+    "svar = sp.diff(e22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "5860465d-6533-4966-883d-61b8a192ec21",
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{5 x^{4}}{x^{5} + 1}$"
+      ],
+      "text/plain": [
+       "5*x**4/(x**5 + 1)"
+      ]
+     },
+     "execution_count": 86,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1f)\n",
+    "\n",
+    "def f22(x):\n",
+    "    return sp.log(x**5+1)\n",
+    "\n",
+    "svar = sp.diff(f22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "88882231-0350-49bb-8793-8d6e00680e12",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 8 \\left(x + 1\\right) e^{4 x \\left(x + 2\\right)}$"
+      ],
+      "text/plain": [
+       "8*(x + 1)*exp(4*x*(x + 2))"
+      ]
+     },
+     "execution_count": 85,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1g)\n",
+    "\n",
+    "def g22(x):\n",
+    "    return sp.exp(4*x**2+8*x)\n",
+    "\n",
+    "svar = sp.diff(g22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "9170fb32-f48a-4f8f-8b81-797cb4eeaca5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle - \\frac{1}{x}$"
+      ],
+      "text/plain": [
+       "-1/x"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1h)\n",
+    "\n",
+    "def h22(x):\n",
+    "    return sp.log(1/x)\n",
+    "\n",
+    "svar = sp.diff(h22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "id": "36252a28-7604-4822-8855-794369f988a3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle 12 e^{4 x} + \\frac{6}{x}$"
+      ],
+      "text/plain": [
+       "12*exp(4*x) + 6/x"
+      ]
+     },
+     "execution_count": 83,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1i)\n",
+    "\n",
+    "def i22(x):\n",
+    "    return 6*sp.log(x)+3*sp.exp(4*x)\n",
+    "\n",
+    "svar = sp.diff(i22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "id": "20dbcdf5-d13d-4934-8e6d-a0aefc3437f3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\left(1 - x\\right) e^{- x}$"
+      ],
+      "text/plain": [
+       "(1 - x)*exp(-x)"
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1j)\n",
+    "\n",
+    "def j22(x):\n",
+    "    return x*sp.exp(-x)\n",
+    "\n",
+    "svar = sp.diff(j22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "id": "d07bdaf5-fd78-468e-9dad-e6bdc398c407",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{2 x \\left(x^{2} + \\left(x^{2} + 2\\right) \\log{\\left(x^{2} + 2 \\right)}\\right)}{x^{2} + 2}$"
+      ],
+      "text/plain": [
+       "2*x*(x**2 + (x**2 + 2)*log(x**2 + 2))/(x**2 + 2)"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 1k)\n",
+    "\n",
+    "def k22(x):\n",
+    "    return (x**2)*sp.log(x**2+2)\n",
+    "\n",
+    "svar = sp.diff(k22(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "id": "a15d998c-58a5-4ae5-9b32-4841eb28f8fa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle x^{2} \\cdot \\left(2 x + 3\\right) e^{2 x}$"
+      ],
+      "text/plain": [
+       "x**2*(2*x + 3)*exp(2*x)"
+      ]
+     },
+     "execution_count": 80,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2a)\n",
+    "\n",
+    "def a222(x):\n",
+    "    return x**3*sp.exp(2*x)\n",
+    "\n",
+    "svar = sp.diff(a222(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "id": "1b71f840-0161-4af5-b8e2-d4036096af13",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{4 x}{x^{4} - 1}$"
+      ],
+      "text/plain": [
+       "4*x/(x**4 - 1)"
+      ]
+     },
+     "execution_count": 79,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2b)\n",
+    "\n",
+    "def b222(x):\n",
+    "    return sp.log((x**2-1)/(x**2+1))\n",
+    "\n",
+    "svar = sp.diff(b222(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "5ac2a415-79f3-48b0-9f80-9aec1d7d49d0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{2 x \\left(x^{2} + \\left(x^{2} + 2\\right) \\log{\\left(x^{2} + 2 \\right)}\\right)}{x^{2} + 2}$"
+      ],
+      "text/plain": [
+       "2*x*(x**2 + (x**2 + 2)*log(x**2 + 2))/(x**2 + 2)"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2c)\n",
+    "\n",
+    "def c222(x):\n",
+    "    return x**2*sp.log(x**2+2)\n",
+    "\n",
+    "svar = sp.diff(c222(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "702362db-c330-43e0-9d32-b51f3cf56ac9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/latex": [
+       "$\\displaystyle \\frac{\\left(- x^{2} - 2 x - 1\\right) e^{- x}}{\\left(x^{2} + 1\\right)^{2}}$"
+      ],
+      "text/plain": [
+       "(-x**2 - 2*x - 1)*exp(-x)/(x**2 + 1)**2"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Oppgave 2d)\n",
+    "\n",
+    "def d222(x):\n",
+    "    return (sp.exp(-x))/(x**2+1)\n",
+    "\n",
+    "svar = sp.diff(d222(x),x)\n",
+    "\n",
+    "sp.simplify(svar)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
